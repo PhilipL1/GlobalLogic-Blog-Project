@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const exphbs = require("express-handlebars");
 const fs = require("fs");
+//const fs = require("fs/promises");
 const { homedir } = require("os");
 
 app.use(express.static("./public"));
@@ -17,32 +18,39 @@ allBlogs.push({
   author: "Philip",
   content: content,
 });
-console.log(allBlogs);
 
-fs.readFile("./articles/id_milestones.txt", "utf8").then((content) => {
-  const snippet = content.substr(0, 90) + "...";
-  blogs2 = {
-    id: 2,
-    snippet: snippet,
-    title: "Milestones",
-    author: "James",
-    content: content,
-  };
-  allBlogs.push(blogs2);
+const content2 = fs.readFileSync("./articles/id_IDC.txt", "utf8");
+const snippet2 = content2.substr(0, 90) + "...";
+allBlogs.push({
+  id: 2,
+  snippet: snippet2,
+  title: "Milestones",
+  author: "James",
+  content: content2,
 });
 
-fs.readFile("./articles/id_teaching_code.txt", "utf8").then((snip) => {
-  content = snip;
-  const snippet = snip.substr(0, 90) + "...";
-  blogs3 = {
-    id: 3,
-    snippet: snippet,
-    title: "Teaching code",
-    author: "Mike",
-    content: content,
-  };
-  allBlogs.push(blogs3);
+const content3 = fs.readFileSync("./articles/id_IDC.txt", "utf8");
+const snippet3 = content3.substr(0, 90) + "...";
+allBlogs.push({
+  id: 3,
+  snippet: snippet3,
+  title: "Teaching code",
+  author: "Mike",
+  content: content3,
 });
+
+// fs.readFile("./articles/id_teaching_code.txt", "utf8").then((snip) => {
+//   content = snip;
+//   const snippet = snip.substr(0, 90) + "...";
+//   blogs3 = {
+//     id: 3,
+//     snippet: snippet,
+//     title: "Teaching code",
+//     author: "Mike",
+//     content: content,
+//   };
+//   allBlogs.push(blogs3);
+// });
 
 app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
@@ -64,6 +72,6 @@ app.get("/new/:id", (req, res) => {
   res.render("new", found);
 });
 
-app.listen(8080, () => {
-  console.log("Server is starting at port wait.. ", 8080);
+app.listen(8000, () => {
+  console.log("Server is starting at port wait.. ", 8000);
 });
