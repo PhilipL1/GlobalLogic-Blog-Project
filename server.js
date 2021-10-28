@@ -19,7 +19,7 @@ allBlogs.push({
   content: content,
 });
 
-const content2 = fs.readFileSync("./articles/id_IDC.txt", "utf8");
+const content2 = fs.readFileSync("./articles/id_milestones.txt", "utf8");
 const snippet2 = content2.substr(0, 90) + "...";
 allBlogs.push({
   id: 2,
@@ -29,7 +29,7 @@ allBlogs.push({
   content: content2,
 });
 
-const content3 = fs.readFileSync("./articles/id_IDC.txt", "utf8");
+const content3 = fs.readFileSync("./articles/id_teaching_code.txt", "utf8");
 const snippet3 = content3.substr(0, 90) + "...";
 allBlogs.push({
   id: 3,

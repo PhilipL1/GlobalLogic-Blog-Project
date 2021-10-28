@@ -10,28 +10,30 @@ pipeline{
         }
         stage('UI test'){
             parallel{
-                stage('start server'){
-                    steps {
-                        sh '''
-                        npm start
-                        '''
-                    }
-                } 
                 stage('run cypress'){
                     steps {
+                        timeout(4){
+
+                        }
                         sh '''
-                       sleep 20
+                        sleep 15
                         npm run cypress
                         '''
                     }
                 } 
-            }
-        }
-        stage('Build'){
-            steps{
-                 sh '''
-                 npm run devStart
-                 '''
+                stage('Build'){
+                    steps {
+                        timeout(2){
+                            script{
+                                sh '''
+                                'npm start'
+                                '''
+                            } catch (throwable e){
+                                currentBuild.result = 'Success'
+                            }
+                        }
+                    }
+                } 
             }
         }
         stage('Unit test'){
