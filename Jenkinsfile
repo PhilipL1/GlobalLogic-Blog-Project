@@ -3,28 +3,28 @@ pipeline{
     stages{
         stage('setUp'){
             steps{
-                sh "./setUp"
+                sh "./Jenkins/setUp"
             }
         }
     }
     stages{
         stage('UI test'){
             steps{
-                 sh "./UI-test"
+                 sh "./Jenkins/UI-test"
             }
         }
     }
     stages{
         stage('Unit test'){
             steps{
-                 sh "./Unit-test"
+                 sh "./Jenkins/Unit-test"
             }
         }
     }
     stages{
         stage('Build'){
             steps{
-                 sh "./Build"
+                 sh "./Jenkins/Build"
             }
         }
     }
