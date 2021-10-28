@@ -35,3 +35,10 @@ describe("Test home page", function () {
     cy.contains("Milestones");
   });
 });
+
+describe("Test Nav bar", function () {
+  it("show navbar ", function () {
+    cy.visit("localhost:8080/new/3");
+    cy.get(".navbar").should("be.visible");
+  });
+});

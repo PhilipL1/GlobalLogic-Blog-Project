@@ -3,22 +3,30 @@ pipeline{
     stages{
         stage('setUp'){
             steps{
-                sh " bash ./Jenkins/setUp.sh"
+                sh '''
+                npm install 
+                '''
             }
         }
         stage('UI test'){
             steps{
-                 sh "bash ./Jenkins/UI-test.sh"
+                 sh '''
+                 npm run cypress:open
+                 '''
             }
         }
         stage('Unit test'){
             steps{
-                 sh "bash ./Jenkins/Unit-test.sh"
+                 sh '''
+                 npm run test jest
+                 '''
             }
         }
         stage('Build'){
             steps{
-                 sh "bash ./Jenkins/Build.sh"
+                 sh '''
+                 npm run devStart
+                 '''
             }
         }
     }    
