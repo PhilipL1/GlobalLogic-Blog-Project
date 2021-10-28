@@ -25,10 +25,11 @@ pipeline{
                     steps {
                         timeout(2){
                             script{
+                                try{
                                 sh '''
                                 'npm start'
                                 '''
-                            }catch (Throwable e){
+                            } catch (Throwable e) {
                                 currentBuild.result = 'Success'
                             }
                         }
