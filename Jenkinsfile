@@ -31,10 +31,11 @@ pipeline{
                                 '''
                             } catch (Throwable e) {
                                 currentBuild.result = 'Success'
+                                }
                             }
                         }
-                    }
-                } 
+                    } 
+                }
             }
         }
         stage('Unit test'){
@@ -42,8 +43,7 @@ pipeline{
                  sh '''
                  npm run test jest
                  '''
-            }
-        }
-    }    
-}
+                }
+            }   
+    }
 }
