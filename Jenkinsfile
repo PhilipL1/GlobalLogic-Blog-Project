@@ -20,7 +20,7 @@ pipeline{
                 stage('run cypress'){
                     steps {
                         sh '''
-                       sleep 10
+                       sleep 20
                         npm run cypress
                         '''
                     }
