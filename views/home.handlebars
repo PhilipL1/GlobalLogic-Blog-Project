@@ -1,0 +1,27 @@
+
+
+      {{#each allBlogs}}
+      <ul>
+        <li class='cardslist'>
+      <div class="row">
+        <div id={{this.id}} >
+          <div class="column">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                      <h5 class="card-title">{{this.title}}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">{{this.snippet}}</h6>
+                      <p class="card-text"> Author: {{this.author}}</p>
+        <a href="/new/{{this.id}}" class="card-link">Read me</a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+      </li>
+    </ul>
+      {{/each}}
+      </div>
+    </div>
+
+    
+

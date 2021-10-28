@@ -1,0 +1,32 @@
+{
+  "name": "globallogic-blog-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "testError": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon server.js",
+    "cypress:open": "cypress open",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhilipL1/GlobalLogic-Blog-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PhilipL1/GlobalLogic-Blog-Project/issues"
+  },
+  "homepage": "https://github.com/PhilipL1/GlobalLogic-Blog-Project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4"
+  },
+  "devDependencies": {
+    "cypress": "^8.7.0",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.14"
+  }
+}
