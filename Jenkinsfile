@@ -15,17 +15,17 @@ pipeline{
                  '''
             }
         }
-        stage('Unit test'){
-            steps{
-                 sh '''
-                 npm run test jest
-                 '''
-            }
-        }
         stage('Build'){
             steps{
                  sh '''
                  npm run devStart
+                 '''
+            }
+        }
+        stage('Unit test'){
+            steps{
+                 sh '''
+                 npm run test jest
                  '''
             }
         }
