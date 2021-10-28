@@ -1,6 +1,6 @@
 describe("Test card elements", function () {
   it("click a Read me in IDC card ", function () {
-    cy.visit("localhost:8080/");
+    cy.visit("localhost:8000/");
     cy.get("#1").within(() => {
       return cy.contains("Read me").click();
     });
@@ -9,7 +9,7 @@ describe("Test card elements", function () {
   });
 
   it("click a Read me in Milestones card ", function () {
-    cy.visit("localhost:8080/");
+    cy.visit("localhost:8000/");
     cy.get("#2").within(() => {
       return cy.contains("Read me").click();
     });
@@ -18,7 +18,7 @@ describe("Test card elements", function () {
   });
 
   it("click a Read me in Teaching code card ", function () {
-    cy.visit("localhost:8080/");
+    cy.visit("localhost:8000/");
     cy.get("#3").within(() => {
       return cy.contains("Read me").click();
     });
@@ -29,16 +29,16 @@ describe("Test card elements", function () {
 
 describe("Test home page", function () {
   it("click home element ", function () {
-    cy.visit("localhost:8080/new/3");
+    cy.visit("localhost:8000/new/3");
     cy.contains("Home").click();
-    cy.url().should("contain", "localhost:8080/");
+    cy.url().should("contain", "localhost:8000/");
     cy.contains("Milestones");
   });
 });
 
 describe("Test Nav bar", function () {
   it("show navbar ", function () {
-    cy.visit("localhost:8080/");
+    cy.visit("localhost:8000/");
     cy.get(".navbar").should("be.visible");
   });
 });

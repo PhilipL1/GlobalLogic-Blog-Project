@@ -61,8 +61,8 @@ app.use(express.static("public"));
 // });
 
 app.get("/", (req, res) => {
-  style = { style: "home.css" };
-  res.render("home", { allBlogs, style });
+  //style = { style: "home.css" };
+  res.render("home", allBlogs);
 });
 
 app.get("/new/:id", (req, res) => {
