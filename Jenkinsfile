@@ -11,7 +11,7 @@ pipeline{
         stage('UI test'){
             steps{
                  sh '''
-                 npm run cypress:open
+                 npm run cypress
                  '''
             }
         }
