@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 module.exports = unitTest;
 
 //console.log(blogTest2());et

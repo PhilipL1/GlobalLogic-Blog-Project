@@ -8,6 +8,13 @@ pipeline{
                 '''
             }
         }
+        stage('Unit test'){
+            steps{
+                 sh '''
+                 npm run test jest
+                 '''
+                }
+            }  
         stage('UI test'){
             parallel{
                 stage('run cypress'){
@@ -37,13 +44,6 @@ pipeline{
                     } 
                 }
             }
-        }
-        stage('Unit test'){
-            steps{
-                 sh '''
-                 npm run test jest
-                 '''
-                }
-            }   
+        } 
     }
 }

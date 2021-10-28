@@ -38,7 +38,7 @@ describe("Test home page", function () {
 
 describe("Test Nav bar", function () {
   it("show navbar ", function () {
-    cy.visit("localhost:8080/new/3");
+    cy.visit("localhost:8080/");
     cy.get(".navbar").should("be.visible");
   });
 });
