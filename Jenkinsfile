@@ -9,11 +9,21 @@ pipeline{
             }
         }
         stage('UI test'){
-            steps{
-                 sh '''
-                 npm start
-                 npm run cypress
-                 '''
+            parallel{
+                stage('start server'){
+                    steps {
+                        sh '''
+                        npm start
+                        '''
+                    }
+                } 
+                stage('start server'){
+                    steps {
+                        sh '''
+                        npm run cypress
+                        '''
+                    }
+                } 
             }
         }
         stage('Build'){
