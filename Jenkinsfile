@@ -28,7 +28,7 @@ pipeline{
                                 sh '''
                                 'npm start'
                                 '''
-                            } catch (Throwable e){
+                            }catch (Throwable e){
                                 currentBuild.result = 'Success'
                             }
                         }
