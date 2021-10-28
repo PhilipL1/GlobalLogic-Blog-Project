@@ -5,13 +5,13 @@ pipeline{
             steps{
                 sh '''
                 npm install 
-                npm start
                 '''
             }
         }
         stage('UI test'){
             steps{
                  sh '''
+                 npm start
                  npm run cypress
                  '''
             }
