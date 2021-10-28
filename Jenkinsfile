@@ -17,9 +17,10 @@ pipeline{
                         '''
                     }
                 } 
-                stage('start server'){
+                stage('run cypress'){
                     steps {
                         sh '''
+                       sleep 10
                         npm run cypress
                         '''
                     }
