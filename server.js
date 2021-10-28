@@ -2,10 +2,11 @@ const express = require("express");
 const app = express();
 const exphbs = require("express-handlebars");
 const fs = require("fs");
-//const fs = require("fs/promises");
 const { homedir } = require("os");
 
-app.use(express.static("./public"));
+app.engine("handlebars", exphbs());
+app.set("view engine", "handlebars");
+// app.use(express.static("./public"));
 
 let allBlogs = [];
 
@@ -39,26 +40,7 @@ allBlogs.push({
   content: content3,
 });
 
-// fs.readFile("./articles/id_teaching_code.txt", "utf8").then((snip) => {
-//   content = snip;
-//   const snippet = snip.substr(0, 90) + "...";
-//   blogs3 = {
-//     id: 3,
-//     snippet: snippet,
-//     title: "Teaching code",
-//     author: "Mike",
-//     content: content,
-//   };
-//   allBlogs.push(blogs3);
-// });
-
-app.engine("handlebars", exphbs());
-app.set("view engine", "handlebars");
-app.use(express.static("public"));
-
-// app.get("/index", (req, res) => {
-//   res.render("index");
-// });
+// console.log(allBlogs);
 
 app.get("/", (req, res) => {
   //style = { style: "home.css" };
@@ -66,9 +48,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/new/:id", (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id; //express
   let found = allBlogs.find((element) => element.id == id);
-  found.id;
   res.render("new", found);
 });
 
