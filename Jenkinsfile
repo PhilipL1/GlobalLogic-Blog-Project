@@ -3,22 +3,22 @@ pipeline{
     stages{
         stage('setUp'){
             steps{
-                sh "./Jenkins/setUp"
+                sh " bash /Jenkins/setUp.sh"
             }
         }
         stage('UI test'){
             steps{
-                 sh "./Jenkins/UI-test"
+                 sh "bash /Jenkins/UI-test.sh"
             }
         }
         stage('Unit test'){
             steps{
-                 sh "./Jenkins/Unit-test"
+                 sh "bash /Jenkins/Unit-test.sh"
             }
         }
         stage('Build'){
             steps{
-                 sh "./Jenkins/Build"
+                 sh "bash /Jenkins/Build.sh"
             }
         }
     }    
