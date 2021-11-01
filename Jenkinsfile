@@ -19,9 +19,6 @@ pipeline{
             parallel{
                 stage('run cypress'){
                     steps {
-                        timeout(4){
-
-                        }
                         sh '''
                         sleep 15
                         npm run cypress

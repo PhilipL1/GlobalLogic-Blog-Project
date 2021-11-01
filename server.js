@@ -4,10 +4,6 @@ const exphbs = require("express-handlebars");
 const fs = require("fs");
 const { homedir } = require("os");
 
-app.engine("handlebars", exphbs());
-app.set("view engine", "handlebars");
-// app.use(express.static("./public"));
-
 let allBlogs = [];
 
 const content = fs.readFileSync("./articles/id_IDC.txt", "utf8");
@@ -41,10 +37,8 @@ allBlogs.push({
 });
 
 // console.log(allBlogs);
-
 app.get("/", (req, res) => {
-  //style = { style: "home.css" };
-  res.render("home", allBlogs);
+  res.render("home", { allBlogs });
 });
 
 app.get("/new/:id", (req, res) => {
@@ -53,6 +47,33 @@ app.get("/new/:id", (req, res) => {
   res.render("new", found);
 });
 
+app.engine("handlebars", exphbs()); //evoke express as a function
+app.set("view engine", "handlebars");
+
 app.listen(8000, () => {
   console.log("Server is starting at port wait.. ", 8000);
 });
+
+//console.log(allBlogs);
+// app.get("/create", (req, res) => {
+//   const article = new Article({
+//     title: req.body.title,
+//     description: req.body.description,
+//     markdown: req.body.markdown,
+//   });
+//   res.render("create", article);
+// });
+
+// app.post("/", async (req, res) => {
+//   const article = new Article({
+//     title: req.body.title,
+//     description: req.body.description,
+//     markdown: req.body.markdown,
+//   });
+//   try {
+//     article = await article.save(); //async function
+//     res.redirect(`./${article.id}`);
+//   } catch (e) {
+//     res.render("./create", { article: article });
+//   }
+// });
