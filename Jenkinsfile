@@ -7,10 +7,17 @@ pipeline
         disableConcurrentBuilds()
     }
     stages{
-        stage("What's-UP"){
+        stage('setUp'){
+            steps{
+                sh '''
+                npm install 
+                '''
+            }
+        }
+        stage("Build my bloody APPPP"){
             steps{
                 sh  '''
-                echo "hello"
+                npm start
                 '''
             }
         }
