@@ -14,6 +14,13 @@ pipeline
                 '''
             }
         }
+        stage('Jest test'){
+            steps{
+                 sh '''
+                 npm run test jest
+                 '''
+                }
+            }  
         stage("Build my bloody APPPP"){
             steps{
                 sh  '''
