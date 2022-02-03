@@ -1,46 +1,22 @@
 pipeline{
-    agent any
+    agent any 
+
+    options{
+        timestamp()
+        disableConcurrentBuilds()
+    }
     stages{
-        stage('setUp'){
+        stage("What's-UP"){
             steps{
-                sh '''
-                npm install 
+                sh  '''
+                echo "hello"
                 '''
             }
         }
-        stage('Unit test'){
-            steps{
-                 sh '''
-                 npm run test jest
-                 '''
-                }
-            }  
-        stage('UI test'){
-            parallel{
-                stage('run cypress'){
-                    steps {
-                        sh '''
-                        sleep 15
-                        npm run cypress
-                        '''
-                    }
-                } 
-                stage('Build'){
-                    steps {
-                        timeout(2){
-                            script{
-                                try{
-                                sh '''
-                                'npm start'
-                                '''
-                            } catch (Throwable e) {
-                                currentBuild.result = 'Success'
-                                }
-                            }
-                        }
-                    } 
-                }
-            }
-        } 
+    }
+    post{
+        cleanup{
+            cleanWs()
+        }
     }
 }
